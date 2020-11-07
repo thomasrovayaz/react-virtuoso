@@ -26,7 +26,7 @@ const DefaultScrollContainer: TScrollContainer = ({ className, style, reportScro
       const scrollTop = (e.target as HTMLDivElement).scrollTop
       currentScrollTop.current = scrollTop
       if (smoothScrollTarget.current !== null) {
-        if (smoothScrollTarget.current === scrollTop) {
+        if (Math.abs(smoothScrollTarget.current - scrollTop) > 100) {
           // console.log('reporting smooth scrolling')
           smoothScrollTarget.current = null
           reportScrollTop(scrollTop)
